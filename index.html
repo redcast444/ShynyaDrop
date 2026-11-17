@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShunyaDrop — кейсы Шуни (не настоящие)</title>
+  <link rel="icon" href="shunya.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Neucha&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="lace lace-top" aria-hidden="true"></div>
+  <p class="disclaimer">🍓 Всё ненастоящее: денег нет, выводить нечего, это мем канала <a href="https://twitch.tv/suniko__" target="_blank" rel="noopener">Suniko__</a></p>
+
+  <header class="top">
+    <a class="logo" href="#cases"><img src="shunya.png" alt="" width="44" height="44" /> Shunya<b>Drop</b></a>
+    <nav>
+      <a href="#cases">Кейсы</a>
+      <a href="#upgrade">Апгрейдер</a>
+      <a href="#inventory">Инвентарь <span id="invCount"></span></a>
+    </nav>
+    <div class="wallet">
+      <span class="balance" id="balance"></span>
+      <button class="btn btn-small" id="beg">Выпросить у Шуни</button>
+      <button class="btn btn-icon" id="mute" aria-label="Звук"></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main id="app"></main>
+    <aside class="panel feed">
+      <h2>Живые дропы <span class="live" id="liveDot">чат</span></h2>
+      <ul id="feed"></ul>
+    </aside>
+  </div>
+
+  <dialog id="modal" class="panel"></dialog>
+  <div class="lace lace-bottom" aria-hidden="true"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

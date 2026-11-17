@@ -1,0 +1,12 @@
+# Ignore everything by default
+/*
+
+# Allow only files needed for build & GitHub Pages deploy
+!.gitignore
+!.github/
+!index.html
+!package.json
+!package-lock.json
+!vite.config.js
+!src/
+!public/
