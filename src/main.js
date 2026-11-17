@@ -32,7 +32,7 @@ function renderWallet() {
 }
 setInterval(renderWallet, 1000);
 $('#beg').onclick = () => {
-  state.balance += 500; state.lastBeg = Date.now(); fx.win(); fx.speak('beg'); save();
+  state.balance += 500; state.lastBeg = Date.now(); fx.win(); save();
 };
 const renderMute = () => ($('#mute').textContent = fx.sound.muted ? '🔇' : '🔊');
 $('#mute').onclick = () => {
@@ -74,7 +74,6 @@ function viewCase(id) {
     if (state.balance < c.price) return toast('Не хватает Шуни-баксов. Выпроси у Шуни!');
     state.balance -= c.price; save();
     btn.disabled = true; btn.classList.add('loading');
-    fx.speak('open');
     const win = rollItem(c);
     fill(win);
     strip.style.transition = 'none'; strip.style.transform = 'translateX(0)';
@@ -106,7 +105,6 @@ function showWin(it) {
   const item = ITEMS[it.id];
   if (item.rarity >= 3) fx.strawberryRain(item.rarity * 15);
   fx.win();
-  fx.speak(item.rarity >= 3 ? 'drop_rare' : 'drop_common');
   const m = $('#modal');
   m.innerHTML = `<h2>Тебе выпало!</h2>${card(it.id, 'big')}
     <p class="rarity" style="color:${RARITIES[item.rarity].color}">${RARITIES[item.rarity].name}</p>
@@ -193,11 +191,11 @@ function viewUpgrade(selUid) {
     state.inv = state.inv.filter((x) => x.uid !== mine.uid);
     if (won) {
       const it = { uid: uid(), id: target };
-      state.inv.unshift(it); save(); pushFeed('Ты', target, true); fx.strawberryRain(50); fx.win(); fx.speak('upgrade_win');
+      state.inv.unshift(it); save(); pushFeed('Ты', target, true); fx.strawberryRain(50); fx.win();
       toast(`Апгрейд удался! ${ITEMS[target].name} 🍓`);
       mine = it; target = null;
     } else {
-      save(); fx.lose(); fx.speak('upgrade_fail'); toast('Лошадь села на твой предмет. Он пропал 🐴'); mine = null;
+      save(); fx.lose(); toast('Лошадь села на твой предмет. Он пропал 🐴'); mine = null;
     }
     setTimeout(draw, 900);
   };
